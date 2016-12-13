@@ -256,6 +256,11 @@ public class ListAdapter extends RecyclerView.Adapter<ViewModel<Item>> {
     }
 
     public void showFooter(int state) {
+        // don't has footer
+        if (!hasFooter()) {
+            return;
+        }
+
         if (supportButNotShowingFooter()) {
             mShowingFooter = true;
             mFooterItem.setState(state);
@@ -270,10 +275,19 @@ public class ListAdapter extends RecyclerView.Adapter<ViewModel<Item>> {
     }
 
     public void hideFooter() {
+        // don't has footer
+        if (!hasFooter()) {
+            return;
+        }
+
         if (shouldShowFooter()) {
             mShowingFooter = false;
             notifyItemRemoved(getHeaderSize() + mItemSortList.size() - 1);
         }
+    }
+
+    public boolean hasFooter() {
+        return mFooterProvider != null;
     }
 
     public boolean isLoadingMore() {
