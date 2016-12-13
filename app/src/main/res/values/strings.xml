@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CompositeRecyclerView Sample</string>
+
+    <string name="empty_description">No Data, Click to Refresh</string>
+    <string name="error_description">Network Error, Click to Retry</string>
+
+    <string name="load_more_description">Loading…</string>
+    <string name="load_more_failed_description">Load Data Failed, Click to Retry</string>
+    <string name="no_more_description">No More Data</string>
+</resources>
