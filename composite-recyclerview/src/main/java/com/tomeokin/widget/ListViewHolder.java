@@ -29,6 +29,7 @@ public class ListViewHolder implements ListAdapter.OnLoadMoreListener {
     ListAdapter mAdapter;
     OnListChangeListener mListener;
 
+    private boolean refreshable = true;
     private boolean isRefreshing = false;
     private boolean isLoading = false;
     boolean hasMore = true;
@@ -53,13 +54,16 @@ public class ListViewHolder implements ListAdapter.OnLoadMoreListener {
             }
         });
         mAdapter.setOnLoadMoreListener(this);
-        //mAdapter.setFooterProvider(new FooterModel.Provider(Integer.MAX_VALUE, new View.OnClickListener() {
-        //    @Override
-        //    public void onClick(View v) {
-        //        dispatchLoadMore();
-        //    }
-        //}), new FooterState(FooterState.STATE_LOADING));
         mListRv.setAdapter(mAdapter);
+    }
+
+    public boolean isRefreshable() {
+        return refreshable;
+    }
+
+    public void setRefreshable(boolean refreshable) {
+        this.refreshable = refreshable;
+        mSwipeRefreshLayout.setEnabled(false);
     }
 
     public void onAttach() {
@@ -76,6 +80,10 @@ public class ListViewHolder implements ListAdapter.OnLoadMoreListener {
 
     public RecyclerView getRecyclerView() {
         return mListRv;
+    }
+
+    public SwipeRefreshLayout getSwipeRefreshLayout() {
+        return mSwipeRefreshLayout;
     }
 
     public void dispatchRefresh() {
