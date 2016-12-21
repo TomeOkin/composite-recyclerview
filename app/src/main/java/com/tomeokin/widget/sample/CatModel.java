@@ -30,7 +30,7 @@ public class CatModel extends ViewModel<Cat> {
     }
 
     @Override
-    public void bindView(Cat item) {
+    public void bindView(Cat item, int position) {
         name.setText(item.getName());
     }
 

@@ -70,6 +70,7 @@ public class ListAdapter extends RecyclerView.Adapter<ViewModel<Item>> {
     public <T extends Item> void setHeaderProvider(ModelFactory<T> headerProvider, @Nullable T item) {
         mHeaderProvider = headerProvider;
         mHeaderItem = item;
+        // FIXME: 2016/12/21
         mItemSortList.add(item);
         mProviderPool.register(mHeaderItem.getClass(), mHeaderProvider);
     }
@@ -93,12 +94,12 @@ public class ListAdapter extends RecyclerView.Adapter<ViewModel<Item>> {
     @Override
     public void onBindViewHolder(ViewModel<Item> holder, int position) {
         if (isHeader(position)) {
-            holder.bindView(mHeaderItem);
+            holder.bindView(mHeaderItem, -1);
         } else if (isFooter(position)) {
-            holder.bindView(mFooterItem);
+            holder.bindView(mFooterItem, -1);
         } else {
             Item item = mItemSortList.get(position);
-            holder.bindView(item);
+            holder.bindView(item, position - getHeaderSize());
         }
     }
 

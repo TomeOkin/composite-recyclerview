@@ -23,7 +23,7 @@ public abstract class ViewModel<T extends Item> extends RecyclerView.ViewHolder 
         super(itemView);
     }
 
-    public abstract void bindView(T item);
+    public abstract void bindView(T item, int position);
 
     public abstract void recycledView();
 }

@@ -34,7 +34,7 @@ public class ToastFooterModel extends ViewModel<FooterState> {
     }
 
     @Override
-    public void bindView(FooterState item) {
+    public void bindView(FooterState item, int position) {
         switch (item.getState()) {
             case FooterState.STATE_LOADING:
                 loadMoreView.setVisibility(View.VISIBLE);
