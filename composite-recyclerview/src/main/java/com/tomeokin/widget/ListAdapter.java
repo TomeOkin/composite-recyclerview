@@ -324,7 +324,7 @@ public class ListAdapter extends RecyclerView.Adapter<ViewModel<Item>> {
     }
 
     @SuppressWarnings("unchecked")
-    public void setItems(List<? extends Item> items) {
+    public void setItems(List<? super Item> items) {
         mItemSortList.beginBatchedUpdates();
         try {
             mItemSortList.clear();

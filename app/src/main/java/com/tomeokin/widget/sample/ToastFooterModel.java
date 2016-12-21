@@ -19,7 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.tomeokin.widget.FooterState;
-import com.tomeokin.widget.ModelFactory;
+import com.tomeokin.widget.UnorderedModelFactory;
 import com.tomeokin.widget.ViewModel;
 
 public class ToastFooterModel extends ViewModel<FooterState> {
@@ -57,7 +57,7 @@ public class ToastFooterModel extends ViewModel<FooterState> {
 
     }
 
-    public static final class Provider implements ModelFactory<FooterState> {
+    public static final class Provider extends UnorderedModelFactory<FooterState> {
         private final int modelOrder;
         private final View.OnClickListener listener;
 
@@ -81,27 +81,9 @@ public class ToastFooterModel extends ViewModel<FooterState> {
             return 1;
         }
 
-        // no use for footer
-        @Override
-        public boolean areItemsTheSame(FooterState item1, FooterState item2) {
-            return false;
-        }
-
-        // no use for footer
-        @Override
-        public boolean areContentsTheSame(FooterState oldItem, FooterState newItem) {
-            return false;
-        }
-
         @Override
         public int modelOrder() {
             return modelOrder;
-        }
-
-        // no use for footer
-        @Override
-        public int compare(FooterState o1, FooterState o2) {
-            return 0;
         }
     }
 }
