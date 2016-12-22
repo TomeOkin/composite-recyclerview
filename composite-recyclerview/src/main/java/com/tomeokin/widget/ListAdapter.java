@@ -352,6 +352,10 @@ public class ListAdapter extends RecyclerView.Adapter<ViewModel<Item>> {
         mItemSortList.updateItemAt(index, item);
     }
 
+    public Item getItem(int index) {
+        return mItemSortList.get(index);
+    }
+
     public int getVisibleRows() {
         return mVisibleRows;
     }
