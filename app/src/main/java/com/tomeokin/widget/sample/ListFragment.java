@@ -100,6 +100,7 @@ public class ListFragment extends Fragment {
                     cats.add(cat);
                 }
                 mAdapter.setItems(cats);
+                mListViewHolder.resetViewState();
                 mAdapter.hideFooter();
                 mStateViewHelper.switchToContent();
             }
